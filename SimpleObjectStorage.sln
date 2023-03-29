@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleObjectStorage", "SimpleObjectStorage\SimpleObjectStorage.csproj", "{1A5A6530-9C1E-4458-B203-C27707DDA003}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleObjectStorage.Tests", "SimpleObjectStorage.Tests\SimpleObjectStorage.Tests.csproj", "{3DA70A97-93E6-4CB1-98A4-5FC0E7C789C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A5A6530-9C1E-4458-B203-C27707DDA003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5A6530-9C1E-4458-B203-C27707DDA003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5A6530-9C1E-4458-B203-C27707DDA003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5A6530-9C1E-4458-B203-C27707DDA003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA70A97-93E6-4CB1-98A4-5FC0E7C789C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA70A97-93E6-4CB1-98A4-5FC0E7C789C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA70A97-93E6-4CB1-98A4-5FC0E7C789C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA70A97-93E6-4CB1-98A4-5FC0E7C789C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
