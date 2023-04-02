@@ -118,21 +118,15 @@ public class LocalFileObjectStore : IObjectStore
         if (Directory.Exists(_folderPath))
             return;
         
-        try
-        {
-            Directory.CreateDirectory(_folderPath);
-        }
-        catch (Exception e)
-        {
-            throw new Exception($"Could not create folder {_folderPath}", e);
-        }
+        
+        throw new Exception($"Folder {_folderPath} does not exist.");
     }
 
     public async Task<ObjectStoreTextResult> GetTextFileAsync(string key)
     {
         var returnCode = FileCheck(key);
-        if (returnCode != ObjectStoreReturnCodes.Success)
-            return ObjectStoreTextResult.FromReturnCode(returnCode);
+        if (returnCode != ObjectStoreReturnCodes.FileAlreadyExists) 
+            return ObjectStoreTextResult.FromReturnCode(ObjectStoreReturnCodes.FileNotFound);
 
         var filePath = Path.Combine(_folderPath, key);
         return await ObjectStoreTextResult.FromFile(filePath);
@@ -141,7 +135,7 @@ public class LocalFileObjectStore : IObjectStore
     public async Task<ObjectStoreReturnCodes> SetTextFileAsync(string key, string value)
     {
         var returnCode = FileCheck(key);
-        if (returnCode != ObjectStoreReturnCodes.Success)
+        if (returnCode != ObjectStoreReturnCodes.Success && returnCode != ObjectStoreReturnCodes.FileAlreadyExists)
             return returnCode;
 
         var filePath = Path.Combine(_folderPath, key);
@@ -169,7 +163,7 @@ public class LocalFileObjectStore : IObjectStore
     public async Task<ObjectStoreReturnCodes> SetBinaryFileAsync(string key, byte[] value)
     {
         var returnCode = FileCheck(key);
-        if (returnCode != ObjectStoreReturnCodes.Success)
+        if (returnCode != ObjectStoreReturnCodes.Success && returnCode != ObjectStoreReturnCodes.FileAlreadyExists)
             return returnCode;
 
         var filePath = Path.Combine(_folderPath, key);
@@ -187,8 +181,9 @@ public class LocalFileObjectStore : IObjectStore
     public async Task<ObjectStoreReturnCodes> DeleteAsync(string key)
     {
         var returnCode = FileCheck(key);
-        if (returnCode != ObjectStoreReturnCodes.Success)
+        if (returnCode != ObjectStoreReturnCodes.FileAlreadyExists)
             return returnCode;
+
         
         var filePath = Path.Combine(_folderPath, key);
         try
