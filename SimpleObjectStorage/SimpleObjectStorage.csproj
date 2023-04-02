@@ -1,11 +1,35 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <SemVer>1.0.0</SemVer>
+    <Version>$(SemVer)</Version>
+    <Year>2023</Year>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Title>SimpleObjectStorage</Title>
+    <Authors>Cody Gillespie</Authors>
+    <Description>Library for managing the storage of objects.</Description>
+    <PackageTags>simpleobjectstorage;objectstorage;aws;s3;amazon;storage</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Codyrg/csharp-object-storage-utility</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Codyrg/csharp-object-storage-utility</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>SimpleObjectStorage</PackageId>
+    <PackageVersion>$(SemVer)</PackageVersion>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../readme.md" Pack="true" PackagePath="" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AWSSDK.S3" Version="3.7.103.37" />
   </ItemGroup>
